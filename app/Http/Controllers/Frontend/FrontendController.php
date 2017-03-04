@@ -29,7 +29,10 @@ class FrontendController extends Controller
 
 		$hot_products = Product::where("products.category_id", 13)->get();
 
-		return view('frontend.index')->with(array("hot_products"=>$hot_products, "categories_html"=>$categories_html));
+		// For Brand
+		$brands = Brand::get();
+
+		return view('frontend.index')->with(array("hot_products"=>$hot_products, "brands"=>$brands, "categories_html"=>$categories_html));
 	}
 
 	/**
@@ -44,11 +47,17 @@ class FrontendController extends Controller
 		//$categories = Category::where("parent_id", 0)->get();
 
 		
-
+		// for category
 		$category_id = Input::get("category");
 
 		$category = null;
 		$category = Category::find($category_id);
+
+		// for brand
+		$brand_id = Input::get("brand");
+
+		$brand = null;
+		$brand = Brand::find($brand_id);
 
 		
 
@@ -62,6 +71,11 @@ class FrontendController extends Controller
 			$products = $products->where("products.category_id", $category_id);
 		}
 
+		// for clicking brand logo
+		if($brand){
+			$products = $products->where("products.brand_id", $brand_id);
+		}
+
 		// for search
 		if($keyword){
 			$products = $products->where("products.title", "like", "%".$keyword."%");
@@ -71,8 +85,11 @@ class FrontendController extends Controller
 		->select("products.*", "categories.title AS category_title")
 		->paginate(16);
 
+		// For Brand Logo
+		$brand_logos = Brand::get();
+
 		return view("frontend.products.index")
-		->with(array("products"=>$products, "category"=>$category));
+		->with(array("products"=>$products, "category"=>$category, "brand_logos"=>$brand_logos, "brand"=>$brand));
 	}
 
 	public function productdetails($id){

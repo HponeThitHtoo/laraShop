@@ -34,7 +34,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($categories as $category)
+                        @foreach($categorie_list as $category)
                         <tr>
                             <td>{{$category->id}}</td>
                             <td>{{$category->title}}</td>
@@ -55,7 +55,7 @@
             </div><!--table-responsive-->
         </div><!-- /.box-body -->
     </div><!--box-->
-{{$categories->links()}}
+{{$categorie_list->links()}}
     
 @stop
 

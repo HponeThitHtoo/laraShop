@@ -6,21 +6,28 @@
                 <h3>Best Deals For New Products<span class="blink_me"></span></h3>
             </div>
             <div class="w3l_banner_nav_right_banner3_btm">
-                <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
-                    <div class="view view-tenth">
-                        <img src="images/13.jpg" alt=" " class="img-responsive" />
-                        <div class="mask">
-                            <h4>Grocery Store</h4>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+
+                @foreach($brand_logos as $brand_logo)
+                    <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
+                        <a href='{{url("/products?brand=".$brand_logo->id)}}'>
+                        <div class="view view-tenth">
+                            <img src="{{url('images/200x200/brands/'.$brand_logo->logo)}}" alt=" " class="img-responsive" />
+                            <div class="mask">
+                                <h4>{{$brand_logo->name}}</h4>
+                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                            </div>
                         </div>
+                        </a>
+                        {{-- <h4>Utensils</h4>
+                        <ol>
+                            <li>sunt in culpa qui officia</li>
+                            <li>commodo consequat</li>
+                            <li>sed do eiusmod tempor incididunt</li>
+                        </ol> --}}
                     </div>
-                    <h4>Utensils</h4>
-                    <ol>
-                        <li>sunt in culpa qui officia</li>
-                        <li>commodo consequat</li>
-                        <li>sed do eiusmod tempor incididunt</li>
-                    </ol>
-                </div>
+                @endforeach
+
+                {{--
                 <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
                     <div class="view view-tenth">
                         <img src="images/14.jpg" alt=" " class="img-responsive" />
@@ -50,7 +57,7 @@
                         <li>ut aliquid ex ea commodi</li>
                         <li>magnam aliquam quaerat</li>
                     </ol>
-                </div>
+                </div> --}}
                 <div class="clearfix"> </div>
             </div>
             <div class="w3ls_w3l_banner_nav_right_grid">
@@ -59,6 +66,8 @@
                 <div class="w3ls_w3l_banner_nav_right_grid1">
                     @if($category)
                     <h6>{{$category->title}}</h6>
+                    @elseif($brand)
+                    <h6>{{$brand->name}}</h6>
                     @else
                     <h6>Products</h6>
                     @endif
