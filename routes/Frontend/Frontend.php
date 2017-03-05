@@ -19,7 +19,7 @@ Route::post('/send_message', 'FrontendController@send_message')->name('sendmessa
 
 Route::get('/faq', 'FrontendController@faq')->name('faq');
 
-
+Route::get('/page/{slug}', 'PageController@index')->name('page');
 
 /**
  * These frontend controllers require the user to be logged in

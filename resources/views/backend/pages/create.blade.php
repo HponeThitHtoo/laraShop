@@ -4,7 +4,7 @@
 
 @section('page-header')
     <h1>
-        Create Product
+        Create Page
         <small>Creating Page</small>
     </h1>
 @endsection
@@ -49,7 +49,7 @@
                         <label for="page_description" class="control-label">Description</label>
                     </div>
                     <div class="col-lg-10">
-                        {!!Form::textarea("description", null, ["class"=>"form-control", "id"=>"page_description"])!!}
+                        {!!Form::textarea("description", null, ["class"=>"form-control tinymce", "id"=>"page_description"])!!}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 

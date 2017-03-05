@@ -43,7 +43,7 @@
                    <label class="col-lg-2 control-label" for="setting_description">Description</label>
 
                     <div class="col-lg-10">
-                        {!!Form::textarea("description", null, ["class"=>"form-control", "id"=>"setting_description"])!!}
+                        {!!Form::textarea("description", null, ["class"=>"form-control tinymce", "id"=>"setting_description"])!!}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 

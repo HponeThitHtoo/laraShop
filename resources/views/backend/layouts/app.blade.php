@@ -71,6 +71,10 @@
         <!-- JavaScripts -->
         @yield('before-scripts')
         {{ Html::script(elixir('js/backend.js')) }}
+        
+        <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea.tinymce' });</script>
+
         @yield('after-scripts')
     </body>
 </html>

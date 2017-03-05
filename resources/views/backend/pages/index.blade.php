@@ -7,7 +7,7 @@
 @stop
 
 @section('page-header')
-    <h1>Products</h1>
+    <h1>Pages</h1>
 @endsection
 
 @section('content')

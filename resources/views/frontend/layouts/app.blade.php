@@ -153,7 +153,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <ul>
                 <li><i class="fa fa-home" aria-hidden="true"></i><a href="{{route('frontend.index')}}">Home</a><span>|</span></li>
                 <li><a href="{{route('frontend.products')}}">Products</a><span>|</span></li>
-                <li><a href="{{route('frontend.faq')}}">FAQ's</a></li>
+                <li><a href="{{route('frontend.faq')}}">FAQ's</a><span>|</span></li>
+                <li><a href="{{route('frontend.page','about')}}">About Us</a><span>|</span></li>
+                <li><a href="{{route('frontend.page', 'services')}}">Services</a></li>
             </ul>
         </div>
     </div>
